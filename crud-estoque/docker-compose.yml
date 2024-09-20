@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: express_app
+    depends_on:
+      - mongodb
+    ports:
+      - "3002:3002" # Mapeie a porta 3000 do host para a porta 3000 do container
+    volumes:
+      - .:/app # Mapeie o diretório atual para o diretório de trabalho do container
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app_network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" # Porta do MongoDB
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app_network
+    
+volumes:
+  mongodb_data:
+
+networks:
+  app_network:
+    driver: bridge
