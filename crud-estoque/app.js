@@ -15,9 +15,7 @@ var router_produto = require('./controllers/ProdutoController');
  * tags:
  *   name: Users
  *   description: API para gerenciar usuários
- */
-
-
+*/
 
 var app = express();
 
@@ -43,7 +41,7 @@ app.use(function (req, res, next) {
 
 // criando os endpoints
 app.use('/usuario',router_user);
-app.use('/produto', router_produto);
+app.use('/items', router_produto);
 
 
 

@@ -6,13 +6,13 @@ const ProdutoService = require('../domain/services/ProdutoService')
 
 /**
  * @swagger
- * /produtos/:
+ * /items/:
  *   get:
- *     summary: Retorna uma lista de produtos
- *     tags: [Produtos]
+ *     summary: Retorna uma lista de items
+ *     tags: [items]
  *     responses:
  *       200:
- *         description: Lista de produtos
+ *         description: Lista de items
  *         content:
  *           application/json:
  *             schema:
@@ -46,20 +46,20 @@ router.get('/', async (req, res) => {
 
 /**
  * @swagger
- * /produtos/{id}:
+ * /items/{id}:
  *   get:
- *     summary: Retorna um produto específico
- *     tags: [Produtos]
+ *     summary: Retorna um items específico
+ *     tags: [items]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: ID do produto
+ *         description: ID do Item
  *     responses:
  *       200:
- *         description: Produto encontrado
+ *         description: Item encontrado
  *         content:
  *           application/json:
  *             schema:
@@ -70,7 +70,7 @@ router.get('/', async (req, res) => {
  *                   example: 66ecafd0be031f5ab155b2d0
  *                 nome:
  *                   type: string
- *                   example: "Produto A"
+ *                   example: "Item A"
  *                 valor:
  *                   type: number
  *                   example: 49.99
@@ -92,10 +92,10 @@ router.get('/:id', async (req, res) => {
 
 /**
  * @swagger
- * /produtos/:
+ * /items/:
  *   post:
- *     summary: Cria um novo produto
- *     tags: [Produtos]
+ *     summary: Cria um novo items
+ *     tags: [items]
  *     requestBody:
  *       required: true
  *       content:
@@ -105,7 +105,7 @@ router.get('/:id', async (req, res) => {
  *             properties:
  *               nome:
  *                 type: string
- *                 example: "Produto A"
+ *                 example: "item A"
  *               valor:
  *                 type: number
  *                 example: 49.99
@@ -117,7 +117,7 @@ router.get('/:id', async (req, res) => {
  *                 example: 20
  *     responses:
  *       200:
- *         description: Produto criado
+ *         description: item criado
  *         content:
  *           application/json:
  *             schema:
@@ -128,7 +128,7 @@ router.get('/:id', async (req, res) => {
  *                   example: 66ecafd0be031f5ab155b2d0
  *                 nome:
  *                   type: string
- *                   example: "Produto A"
+ *                   example: "item A"
  *                 valor:
  *                   type: number
  *                   example: 49.99
@@ -139,7 +139,7 @@ router.get('/:id', async (req, res) => {
  *                   type: number
  *                   example: 20
  *       404:
- *         description: Produto não criado
+ *         description: item não criado
  */
 router.post('/', async (req, res) => {
     let produto = req.body;
