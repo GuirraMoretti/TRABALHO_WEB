@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemService from '../services/ItemService';
 import ItemsChart from './ItemsChart'; // Gráfico de itens x valor
 
-function ItemsReport() {
+function RelatorioMensal() {
   const [reportData, setReportData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -58,4 +58,4 @@ function ItemsReport() {
   );
 }
 
-export default ItemsReport;
+export default RelatorioMensal;

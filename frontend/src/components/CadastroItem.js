@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ItemService from '../services/ItemService'; // Importa o serviço de item
+import ItemService from '../services/ItemService';
+import '../assets/css/CadastroItem.css';
 
 function CadastroItem() {
   const [itemName, setItemName] = useState('');

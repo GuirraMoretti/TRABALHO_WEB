@@ -1,35 +1,16 @@
-import React, { useState } from 'react';
-import CadastroItem from './CadastroItem'; // Importe o componente do formulário
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleForm = () => setShowForm(!showForm);
-
-  return (
-    <div className="home-container">
-      <header className="topbar">
-        <h1>Welcome to the Application</h1>
-        <nav>
-          <ul>
-            <li><a href="#" onClick={toggleForm}>Cadastrar Item</a></li>
-            <li><a href="/listagem">Listar Itens</a></li>
-            <li><a href="/relatorio-mensal">Relatório Mensal</a></li>
-            <li><a href="/relatorio-geral">Relatório Geral</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      {showForm && (
-        <div className="modal-overlay" onClick={() => setShowForm(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setShowForm(false)}>×</button>
-            <CadastroItem />
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  // Verifique se o usuário está autenticado ao carregar a página
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login'); // Se não estiver autenticado, redireciona para login
+    }
+  }, [navigate]);
 }
 
 export default Home;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemService from '../services/ItemService';
 import MonthlyExpensesChart from './MonthlyExpensesChart';
 
-function GeneralReport() {
+function RelatorioGeral() {
   const [items, setItems] = useState([]);
   const [monthlyExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,4 +51,4 @@ function GeneralReport() {
   );
 }
 
-export default GeneralReport;
+export default RelatorioGeral;
